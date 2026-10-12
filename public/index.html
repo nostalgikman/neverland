@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Neverland</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Fond étoilé -->
+  <div id="stars-container"></div>
+  <div id="glow"></div>
+
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">✨</span>
+        <h1>Neverland</h1>
+      </div>
+      <div class="points-badge" id="points-badge">
+        <span class="points-icon">⭐</span>
+        <span id="points-value">0</span>
+        <span class="points-label">pts</span>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="tabs">
+      <button class="tab active" data-tab="chocolat">Chocolats</button>
+      <button class="tab" data-tab="fleurs">Fleurs</button>
+      <button class="tab" data-tab="cart">
+        Panier
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </nav>
+
+    <!-- Contenu -->
+    <main id="main">
+      <!-- Catalogue -->
+      <section id="catalog" class="section active">
+        <div class="products-grid" id="products-grid"></div>
+      </section>
+
+      <!-- Panier & Commande -->
+      <section id="cart-section" class="section">
+        <div id="cart-empty" class="empty-state">
+          <div class="empty-icon">🌙</div>
+          <p>Ton panier est vide…</p>
+          <p class="empty-sub">Choisis quelque chose de magique</p>
+        </div>
+
+        <div id="cart-content" class="hidden">
+          <div id="cart-items"></div>
+
+          <div class="loyalty-box" id="loyalty-box">
+            <div class="loyalty-title">✨ Fidélité Neverland</div>
+            <p>Tu as <strong id="loyalty-points">0</strong> points</p>
+            <p class="loyalty-info">30 points = 1 article offert</p>
+            <label class="checkbox-label" id="use-points-label">
+              <input type="checkbox" id="use-points" />
+              <span>Utiliser 30 points pour offrir un article</span>
+            </label>
+          </div>
+
+          <div class="delivery-box">
+            <div class="delivery-title">Mode de récupération</div>
+            <div class="delivery-options">
+              <label class="radio-card">
+                <input type="radio" name="delivery" value="pickup" checked />
+                <span class="radio-content">
+                  <span class="radio-icon">🏠</span>
+                  <span>Retrait sur place</span>
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="delivery" value="delivery" />
+                <span class="radio-content">
+                  <span class="radio-icon">🚚</span>
+                  <span>Livraison</span>
+                </span>
+              </label>
+            </div>
+
+            <div id="delivery-fields" class="hidden">
+              <div class="form-group">
+                <label>Pseudo Telegram</label>
+                <input type="text" id="tg-username" placeholder="@tonpseudo" autocomplete="off" />
+              </div>
+              <div class="form-group">
+                <label>Adresse complète</label>
+                <textarea id="address" rows="3" placeholder="Numéro, rue, code postal, ville…"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="total-box">
+            <span>Total à payer en espèces</span>
+            <strong id="total-price">0,00 €</strong>
+          </div>
+
+          <button id="submit-order" class="btn-primary" disabled>
+            Commander ✨
+          </button>
+          <p class="cash-note">Paiement uniquement en espèces</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Toast / messages -->
+    <div id="toast" class="toast hidden"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
