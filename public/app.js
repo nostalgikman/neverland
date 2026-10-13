@@ -336,3 +336,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadProducts().then(() => { loadPoints(); loadSettings(); });
 });
+// ===== Générateur d'étoiles filantes =====
+function createShootingStar() {
+  const container = document.getElementById('stars-container');
+  if (!container) return;
+
+  const star = document.createElement('div');
+  star.className = 'shooting-star';
+
+  // Position de départ aléatoire sur l'écran
+  star.style.top = `${Math.random() * 50}%`;
+  star.style.left = `${Math.random() * 80 + 10}%`;
+
+  container.appendChild(star);
+
+  // Supprime l'élément une fois l'animation terminée (1.5s)
+  setTimeout(() => {
+    star.remove();
+  }, 1500);
+}
+
+function scheduleShootingStar() {
+  // Délai aléatoire entre 12 et 25 secondes
+  const delay = Math.random() * 13000 + 12000;
+  setTimeout(() => {
+    createShootingStar();
+    scheduleShootingStar();
+  }, delay);
+}
+
+// Lancement automatique au chargement de la page
+document.addEventListener('DOMContentLoaded', () => {
+  scheduleShootingStar();
+});
