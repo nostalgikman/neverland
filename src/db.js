@@ -75,16 +75,7 @@ for (const [key, value] of Object.entries(defaultSettings)) {
   }
 }
 
-const defaultProducts = [
-  { name: 'Chocolat des Étoiles', description: 'Tablette noire 70% cacao, parfumée à la vanille de la Forêt Perdue.', price: 12.90, unit: '€', category: 'chocolat', image_emoji: '✨🍫' },
-  { name: 'Truffes de la Lune', description: 'Douze truffes crémeuses au cœur fondant, saupoudrées d’or comestible.', price: 18.50, unit: '€', category: 'chocolat', image_emoji: '🌙🍫' },
-  { name: 'Carrés de Neverland', description: 'Assortiment de chocolats blancs et noirs aux notes de fruits rouges.', price: 15.00, unit: '€', category: 'chocolat', image_emoji: '🏰🍫' },
-  { name: 'Cœur de Pixie', description: 'Chocolat au lait fourré d’une ganache légère aux framboises sauvages.', price: 9.90, unit: '€', category: 'chocolat', image_emoji: '🧚🍫' },
-  { name: 'Bouquet Clair de Lune', description: 'Roses blanches et bleuets, enveloppés d’un papier étoilé argenté.', price: 32.00, unit: '€', category: 'fleurs', image_emoji: '🌕🌸' },
-  { name: 'Roses de la Forêt', description: 'Roses anciennes rouge profond, parfumées, comme dans un rêve.', price: 28.50, unit: '€', category: 'fleurs', image_emoji: '🌹' },
-  { name: 'Étoiles Filantes', description: 'Composition de gypsophile, eucalyptus et petites fleurs lumineuses.', price: 24.00, unit: '€', category: 'fleurs', image_emoji: '💫🌼' },
-  { name: 'Couronne de Fées', description: 'Petite couronne de fleurs séchées et fraîches, prête à offrir.', price: 19.90, unit: '€', category: 'fleurs', image_emoji: '👑🌸' }
-];
+const defaultProducts = [];
 
 const count = db.prepare('SELECT COUNT(*) as c FROM products').get().c;
 if (count === 0) {
