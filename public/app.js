@@ -98,7 +98,10 @@ function updatePointsUI() {
 // ===== Catalogue =====
 function renderCatalog() {
   const grid = document.getElementById('products-grid');
-  const filtered = products.filter(p => p.category === currentTab);
+  const filtered = products.filter(p => {
+    if (currentTab === 'tout') return true;
+    return p.category && p.category.toLowerCase().trim() === currentTab.toLowerCase().trim();
+  });
   grid.innerHTML = filtered.map(p => {
     const img = p.image_url
       ? `<img src="${escapeHtml(p.image_url)}" alt="" style="width:56px;height:56px;object-fit:cover;border-radius:14px;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" /><div class="product-emoji" style="display:none;">${p.image_emoji || '🎁'}</div>`
