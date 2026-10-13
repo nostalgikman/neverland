@@ -103,7 +103,7 @@ function renderCatalog() {
     const img = p.image_url
       ? `<img src="${escapeHtml(p.image_url)}" alt="" style="width:56px;height:56px;object-fit:cover;border-radius:14px;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" /><div class="product-emoji" style="display:none;">${p.image_emoji || '🎁'}</div>`
       : `<div class="product-emoji">${p.image_emoji || '🎁'}</div>`;
-    const unit = p.unit && p.unit !== '€' ? ` ${escapeHtml(p.unit)}` : ' €';
+    const unit = '/g';
     return `
     <article class="product-card">
       ${img}
@@ -111,7 +111,7 @@ function renderCatalog() {
         <div class="product-name">${escapeHtml(p.name)}</div>
         <div class="product-desc">${escapeHtml(p.description || '')}</div>
         <div class="product-footer">
-          <span class="product-price">${p.price.toFixed(2).replace('.', ',')}${unit}</span>
+          <span class="product-price">${p.price.toFixed(2)} € ${unit}</span>
           <button class="btn-add" data-id="${p.id}">Ajouter</button>
         </div>
       </div>
