@@ -10,7 +10,7 @@ if (tg) {
 // État
 let products = [];
 let cart = {}; // { productId: qty }
-let currentTab = 'chocolat';
+let currentTab = 'Menu';
 let userPoints = 0;
 let loyaltySettings = { points_per_order: 5, points_for_reward: 30, reward_label: '1 article offert' };
 
