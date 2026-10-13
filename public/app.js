@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadProducts().then(() => { loadPoints(); loadSettings(); });
 });
-// ===== Générateur d'étoiles filantes =====
+// ===== Générateur d'étoiles filantes optimisé =====
 function createShootingStar() {
   const container = document.getElementById('stars-container');
   if (!container) return;
@@ -345,7 +345,7 @@ function createShootingStar() {
   star.className = 'shooting-star';
 
   // Position de départ aléatoire sur l'écran
-  star.style.top = `${Math.random() * 50}%`;
+  star.style.top = `${Math.random() * 60}%`;
   star.style.left = `${Math.random() * 80 + 10}%`;
 
   container.appendChild(star);
@@ -357,8 +357,8 @@ function createShootingStar() {
 }
 
 function scheduleShootingStar() {
-  // Délai aléatoire entre 12 et 25 secondes
-  const delay = Math.random() * 13000 + 12000;
+  // Délai réduit : entre 3 et 7 secondes pour que ce soit plus fréquent et vivant
+  const delay = Math.random() * 4000 + 3000;
   setTimeout(() => {
     createShootingStar();
     scheduleShootingStar();
