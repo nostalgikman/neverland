@@ -185,7 +185,7 @@ function updateCartUI() {
         </div>
         <div class="qty-controls">
           <button class="qty-btn" data-id="${id}" data-delta="-1">−</button>
-          <span class="qty-value">${qty}</span>
+          <span class="qty-value">${qty}g</span>
           <button class="qty-btn" data-id="${id}" data-delta="1">+</button>
         </div>
       </div>
