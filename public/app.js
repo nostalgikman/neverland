@@ -138,7 +138,7 @@ function formatPrice(price) {
 function addToCart(id) {
   cart[id] = (cart[id] || 0) + 1;
   updateCartUI();
-  showToast('Ajouté au panier ✨');
+  showToast('1g ajouté au panier 🪄');
   if (tg?.HapticFeedback) tg.HapticFeedback.impactOccurred('light');
 }
 
