@@ -1,0 +1,20 @@
+{
+  "name": "neverland-miniapp",
+  "version": "1.0.0",
+  "description": "Neverland - Telegram Mini App pour commandes chocolat & fleurs (paiement espèces, fidélité, thème monde imaginaire)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "node-telegram-bot-api": "^0.66.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
